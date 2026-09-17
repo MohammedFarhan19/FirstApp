@@ -10,7 +10,7 @@ import java.awt.Rectangle;
 public class FirstApp {
 
 	public static void main(String[] args) {
-		
+
 //		int firstNumber;
 //		firstNumber = 20;
 //		
@@ -28,34 +28,33 @@ public class FirstApp {
 //		System.out.println("Diff: " + diff);
 //		System.out.println("Mul: " + multiplicationResult);
 //		System.out.printf("Div: %.2f\n" , divisionResult);
-		
+
 		// INPUT
-		int h = 81;
-		int m = 66;
+		int h = 11;
+		int m = 15;
 		float angle = 0;
 		boolean error = false;
-		
+
 		// PROCESSING
-		if(h > 12) {
+		if (h < 12 && m < 59) {
 //			error = true;
-		} else {
 			float minutesArm = m * 6;
 			float hoursArm = h * 30 + minutesArm * 0.5f;
 			angle = hoursArm - minutesArm;
-			if(hoursArm < minutesArm) {
-				angle *=  -1;
+			if (hoursArm < minutesArm) {
+				angle *= -1;
 			}
-		}
-		
-		// OUTPUT
-		if(h > 12) {
-			System.out.println("ERROR: hour's can't be greater than 12");
-		} else if(m > 60) {
-			
-		}
-		
-		else {
-			System.out.println("Angle: " + angle);
+
+			// OUTPUT
+			if (h > 12) {
+				System.out.println("ERROR: hour's can't be greater than 12");
+			} else if (m > 59) {
+				System.out.println("ERROR: minutes can't be greater than 60");
+			}
+
+			else {
+				System.out.println("Angle: " + angle);
+			}
 		}
 	}
 }
