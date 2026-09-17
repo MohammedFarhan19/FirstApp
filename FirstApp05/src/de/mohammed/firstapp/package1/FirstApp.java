@@ -86,49 +86,105 @@ public class FirstApp {
 		//////////////////////////////////////////////////////////
 
 		///////////////////////////////////////////////////////////
-		//            Calculating Days count | START             //
+		//            Calculating Days count using IF| START     //
 		//////////////////////////////////////////////////////////
 		
-		// INPUT
-		int month = 5;
-		int year = 2045;
-		
-		int daysCount;
-		
-		//PROCESSING
-		if(    month == 1 
-			|| month == 3
-			|| month == 5
-			|| month == 7
-			|| month == 8
-			|| month == 10
-			|| month == 12
-				) {
-			daysCount = 31;
-			
-		} else if(month == 4 || month == 6 || month == 9 || month == 11) {
-			daysCount = 30;
-		} else if(month == 2){
-			if(year % 4 == 0) {
-				daysCount = 29;
-			} else {
-				daysCount = 28;
-			}
-		} else {
-			daysCount = 0;
-		}
-		
-		// OUTPUT
-		if(daysCount == 0) {
-			System.out.println("INVALID MONTH");
-		} else {
-			System.out.println("The month " + month + " is: " + daysCount + " days.");
-		}
+//		// INPUT
+//		int month = 5;
+//		int year = 2045;
+//		
+//		int daysCount;
+//		
+//		//PROCESSING
+//		if(    month == 1 
+//			|| month == 3
+//			|| month == 5
+//			|| month == 7
+//			|| month == 8
+//			|| month == 10
+//			|| month == 12
+//				) {
+//			daysCount = 31;
+//			
+//		} else if(month == 4 || month == 6 || month == 9 || month == 11) {
+//			daysCount = 30;
+//		} else if(month == 2){
+//			if(year % 4 == 0) {
+//				daysCount = 29;
+//			} else {
+//				daysCount = 28;
+//			}
+//		} else {
+//			daysCount = 0;
+//		}
+//		
+//		// OUTPUT
+//		if(daysCount == 0) {
+//			System.out.println("INVALID MONTH");
+//		} else {
+//			System.out.println("The month " + month + " is: " + daysCount + " days.");
+//		}
 		
 		///////////////////////////////////////////////////////////
 		//            Calculating Days count | END              //
 		//////////////////////////////////////////////////////////
+
 		
+		/*
+		 * *****************************************************************************
+		 */
+		
+		
+		///////////////////////////////////////////////////////////
+		//       Calculating Days count using SWITCH| START     //
+		//////////////////////////////////////////////////////////
+
+		// INPUT
+//		
+//		int month = 122;
+//		int year = 2020;
+//		
+//		int daysCount;
+//		
+//		// PROCESSING
+//		switch(month) {
+//			case 1:
+//			case 3:
+//			case 5:
+//			case 7:
+//			case 8:
+//			case 10:
+//			case 12:
+//				daysCount = 31;
+//				break;
+//			case 4:
+//			case 6:
+//			case 9:
+//			case 11:
+//				daysCount = 31;
+//				break;
+//			case 2:
+//				if(year % 4 == 0) {
+//					daysCount = 29;
+//				} else {
+//					daysCount = 28;
+//				}
+//				break;
+//			default:
+//				daysCount = 0;
+//		}
+//		
+//		// OUTPUT
+//		if(daysCount == 0) {
+//			System.out.println("INVALID MONTH");
+//		} else {
+//			System.out.println("The month " + month + " is: " + daysCount + " days.");
+//		}
+		
+		///////////////////////////////////////////////////////////
+		//       Calculating Days count using SWITCH| END        //
+		//////////////////////////////////////////////////////////
+
 	}
 }
 
