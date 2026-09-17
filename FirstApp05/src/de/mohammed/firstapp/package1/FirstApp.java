@@ -5,8 +5,6 @@
  */
 package de.mohammed.firstapp.package1;
 
-import java.awt.Rectangle;
-
 public class FirstApp {
 
 	public static void main(String[] args) {
@@ -84,8 +82,53 @@ public class FirstApp {
 //			}
 //		}
 		///////////////////////////////////////////////////////////
-		//            Calculating Berma | END                  //
+		//            Calculating Berma | END                   //
 		//////////////////////////////////////////////////////////
+
+		///////////////////////////////////////////////////////////
+		//            Calculating Days count | START             //
+		//////////////////////////////////////////////////////////
+		
+		// INPUT
+		int month = 5;
+		int year = 2045;
+		
+		int daysCount;
+		
+		//PROCESSING
+		if(    month == 1 
+			|| month == 3
+			|| month == 5
+			|| month == 7
+			|| month == 8
+			|| month == 10
+			|| month == 12
+				) {
+			daysCount = 31;
+			
+		} else if(month == 4 || month == 6 || month == 9 || month == 11) {
+			daysCount = 30;
+		} else if(month == 2){
+			if(year % 4 == 0) {
+				daysCount = 29;
+			} else {
+				daysCount = 28;
+			}
+		} else {
+			daysCount = 0;
+		}
+		
+		// OUTPUT
+		if(daysCount == 0) {
+			System.out.println("INVALID MONTH");
+		} else {
+			System.out.println("The month " + month + " is: " + daysCount + " days.");
+		}
+		
+		///////////////////////////////////////////////////////////
+		//            Calculating Days count | END              //
+		//////////////////////////////////////////////////////////
+		
 	}
 }
 
