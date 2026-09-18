@@ -98,7 +98,7 @@ public class FirstApp {
 		//////////////////////////////////////////////////////////
 	}
 	
-	public static String getMonthDaysCount(int month, int year) {
+	public static int getMonthDaysCount(int month, int year) {
 		///////////////////////////////////////////////////////////
 		//            Calculating Days count using IF| START     //
 		//////////////////////////////////////////////////////////
@@ -170,15 +170,15 @@ public class FirstApp {
 		}
 		
 		// OUTPUT
-		String output = "";
-		if (daysCount == 0) {
-			output = "INVALID MONTH";
-//			System.out.println("INVALID MONTH");
-		} else {
-			output = "The month " + month + " is: " + daysCount + " days.";
-//			System.out.println("The month " + month + " is: " + daysCount + " days.");
-		}
-		return output;
+//		String output = "";
+//		if (daysCount == 0) {
+//			output = "INVALID MONTH";
+////			System.out.println("INVALID MONTH");
+//		} else {
+//			output = "The month " + month + " is: " + daysCount + " days.";
+////			System.out.println("The month " + month + " is: " + daysCount + " days.");
+//		}
+		return daysCount;
 
 	}
 	
@@ -268,50 +268,7 @@ public class FirstApp {
 	}
 	public static void main(String[] args) {
 		
-		int x = 3; // in stack
-		String s = "Tom"; // reference in stack point to s, in heap is the value
-		// String is non Primitive data type
-		
-//		String name = new String("Andy");
-		
-		// Array
-		int[] a = new int[5];
-		a[0] = 13;
-		a[4] = 25;
-		
-		System.out.println(a[0]);
-		System.out.println(a[1]);
-		System.out.println(a[2]);
-		System.out.println(a[3]);
-		System.out.println(a[4]);
-		printStars("Print int Array Using for Loop");
-		printIntArrayUsingForLoop(a);
-		printStars("Print int Array Using while Loop");
-		printIntArrayUsingWhile(a);
-		printStars("Print int Array Using ForEach Loop");
-		printIntArrayUsingForEach(a);
-
-		printStars("print String Array");
-		String[] str = new String[2];
-		str[1] = "Sara";
-		
-		for(int i = 0; i < 2; i++) {
-			System.out.println(str[i]);
-		}
-		printStars("Print String Array Using For Loop");
-		printStringArrayUsingForLoop(str);
-		printStars("test Array");
-		int[] numbers = {13, 55, -99, 57, 0, 56};
-		System.out.println("Array length is: " + numbers.length);
-		System.out.println("Last Element is: " + numbers[numbers.length - 1]);
-		printStars("get Number Info using int Array");
-		int[] numberinfo = getNumberInfo(222);
-		printIntArrayUsingForLoop(numberinfo);
-		System.out.println();
-
-		System.out.print("Digits Count is\t" + numberinfo[0]);
-		System.out.print("\nDigits Sum is\t" + numberinfo[1]);
-		System.out.print("\nNew Number is\t" + numberinfo[2]);
+	System.out.println(getMonthDaysCount(12, 2020));
 	}
 }
 
