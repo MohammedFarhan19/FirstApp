@@ -56,4 +56,13 @@ public class NumbersEngine {
 		output[2] = newNumber;
 		return output;
 	}
+	
+	int sumNumbers(int x, int y) {
+		return x + y;
+	}
+	
+	// overloading
+	float sumNumbers(float x, float y) {
+		return x + y;
+	}
 }

@@ -15,6 +15,15 @@ public class ArrayEngine {
 		return reversedArray;
 	}
 	
+	//overloading
+	public float[]  reverseArray(float[] numbers) {
+		float[]  reversedArray = new float[numbers.length];
+		for(int i = numbers.length - 1; i >= 0; i--) {
+			reversedArray[i] = numbers[numbers.length - i - 1];
+		}
+		return reversedArray;
+	}
+	
 	public boolean isFound(int[] numbers, int target) {
 		for(int i = 0; i < numbers.length; i++) {
 			if(target == numbers[i]) {

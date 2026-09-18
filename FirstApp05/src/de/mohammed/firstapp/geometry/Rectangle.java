@@ -7,13 +7,23 @@ public class Rectangle {
 	private float perimeter;
 	private float area;
 	
-//	public Rectangle() {
-//		//empty Constructor
-//	}
+	public Rectangle() {
+		this.width = 1;
+		this.height = 2;
+	}
 	
+	// overloading
 	public Rectangle(float width, float height) {
 		this.width = width;
 		this.height = height;
+	}
+	
+	// copy constructor
+	public Rectangle(Rectangle rectangle) {
+		this.width = rectangle.width;
+		this.height = rectangle.height;
+		this.area = rectangle.area;
+		this.perimeter = rectangle.perimeter;
 	}
 	
 	public void setWidth(float width) {

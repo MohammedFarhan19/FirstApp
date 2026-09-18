@@ -17,23 +17,11 @@ public class FirstApp {
 	public static void main(String[] args) {
 		
 		GeometryEngine geoEngine = new GeometryEngine();
-		Rectangle r1 = new Rectangle(101, 23);
-
+//		geoEngine.calculateTriangleArea(0, 0);
+		
+		Rectangle r1 = new Rectangle();
 		float area = r1.calculateArea();
-		System.out.printf("Area: %.2f\n", area);
-		
-		Square s = new Square(5);
-		float sArea = s.calculateArea();
-		System.out.println("Square Area: " + sArea);
-
-		s.setSide(6);
-		float s2Area = s.calculateArea();
-		
-		System.out.println("Square Area: " + s2Area);
-		
-		Circle circle = new Circle(32);
-		float circleArea = circle.calculateArea();
-		System.out.println("Area: " + circleArea);
+		System.out.println("Area: " + area);
 		
 	}
 }
