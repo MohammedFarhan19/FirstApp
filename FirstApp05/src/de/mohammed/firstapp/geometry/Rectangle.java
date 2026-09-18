@@ -7,6 +7,15 @@ public class Rectangle {
 	private float perimeter;
 	private float area;
 	
+//	public Rectangle() {
+//		//empty Constructor
+//	}
+	
+	public Rectangle(float width, float height) {
+		this.width = width;
+		this.height = height;
+	}
+	
 	public void setWidth(float width) {
 		this.width = width;
 	}
