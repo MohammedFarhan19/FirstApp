@@ -303,10 +303,20 @@ public class FirstApp {
 		}
 		return minNumber;
 	}
+	
+	public static int countEvenNumbers(int[] numbers) {
+		int count = 0;
+		for(int i = 0; i < numbers.length; i++) {
+			if(numbers[i] % 2 == 0) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
 
 	public static void main(String[] args) {
-		int numbers[] = { 1, 1, 2, 3, 244 };
-		System.out.println("Max Number: " + getMaximumNumber(numbers));
-		System.out.printf("Min Number: %d\n", getMinimumNumber(numbers));
+		int numbers[] = { 1, 1, 2, 3, 244, 10, 33 };
+		System.out.printf("Number of Even Numbers is: %d\n",countEvenNumbers(numbers));
 	}
 }
