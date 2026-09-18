@@ -184,7 +184,57 @@ public class FirstApp {
 		///////////////////////////////////////////////////////////
 		//       Calculating Days count using SWITCH| END        //
 		//////////////////////////////////////////////////////////
+		
+		
+		System.out.println("********************* using for ***********************************");
+		// using for
+		for(int i = 0; i < 10; i++) {
+			System.out.println(i);
+		}
 
+		System.out.println("********************* using while ***********************************");
+		// INPUT
+		int number = 12;
+		int digitsCount = 0;
+		int digitsSum = 0;
+		int newNumber = 0;
+		
+		// PROCESSING
+//		if(number < 0) {
+//			number *= -1;
+//		}
+//		if(number == 0) {
+//			digitsCount = 1;
+//		}
+//		while(number > 0) {
+//			int digit = number % 10;
+//			System.out.println(digit);
+//			digitsSum += digit;
+//			number/= 10;
+//			digitsCount++;
+//		}
+//		// OUTPUT
+//		System.out.println("Digits Count is: " + digitsCount);
+//		System.out.println("Digits Sum is: " + digitsSum);
+		
+		System.out.println("********************* using do while ***********************************");
+		
+		do {
+			int digit = number % 10;
+			System.out.println(digit);
+			digitsSum += digit;
+			int digitSquare = digit * digit;
+			newNumber = newNumber + digitSquare;
+			number/= 10;
+			digitsCount++;
+			
+		} while (number != 0);
+		
+		// OUTPUT
+		System.out.println("Digits Count is: " + digitsCount);
+		System.out.println("Digits Sum is: " + digitsSum);
+		System.out.println("New Number is: " + newNumber);
+		System.out.println("***************** END *******************");
 	}
 }
 
