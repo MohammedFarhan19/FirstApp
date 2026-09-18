@@ -314,9 +314,20 @@ public class FirstApp {
 		return count;
 	}
 	
+	public static int countOddNumbers(int[] numbers) {
+		int count = 0;
+		for(int i = 0; i < numbers.length; i++) {
+			if(numbers[i] % 2 != 0) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
 
 	public static void main(String[] args) {
-		int numbers[] = { 1, 1, 2, 3, 244, 10, 33 };
+		int numbers[] = { 1, 1, 2, 3, 244, 10, 33, 7, 9 };
 		System.out.printf("Number of Even Numbers is: %d\n",countEvenNumbers(numbers));
+		System.out.printf("Number of Odd Numbers is: %d\n",countOddNumbers(numbers));
 	}
 }
