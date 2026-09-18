@@ -235,18 +235,65 @@ public class FirstApp {
 		return output;
 	}
 	
+	public static void printIntArrayUsingForLoop(int[] myArray) {
+		for(int i = 0; i < myArray.length; i++) {
+			System.out.println(myArray[i]);
+		}
+	}
+	
+	public static void printIntArrayUsingWhile(int[] arr) {
+		int i = 0;
+		while(i < arr.length) {
+			System.out.println(arr[i]);
+			i++;
+		}
+	}
+	
+	private static void printIntArrayUsingForEach(int[] arr) {
+		for(Integer a : arr) {
+			System.out.println(a);
+		}
+	}
+	
+	public static void printStringArrayUsingForLoop(String[] arrString) {
+		for(int i = 0; i < arrString.length; i++) {
+			System.out.println(arrString[i]);
+		}
+	}
 	public static void main(String[] args) {
-//		printStars("Angle between Clock arms");
-//		String result = calculateAngleBetweenClockArms(11, 30); //function call
-//		System.out.println(result);
-//		printStars("test function");
-//		test();
-//		printStars("Berma function");
-//		System.out.println("Berma Result: " + calculateBerma());
-//		printStars("Days in Month");
-//		System.out.println(getMonthDaysCount(12, 2103));
-//		printStars("Number Info");
-		System.out.println(getNumberInfo(222));
+		
+		int x = 3; // in stack
+		String s = "Tom"; // reference in stack point to s, in heap is the value
+		// String is non Primitive data type
+		
+//		String name = new String("Andy");
+		
+		// Array
+		int[] a = new int[5];
+		a[0] = 13;
+		a[4] = 25;
+		
+		System.out.println(a[0]);
+		System.out.println(a[1]);
+		System.out.println(a[2]);
+		System.out.println(a[3]);
+		System.out.println(a[4]);
+		printStars("Print int Array Using for Loop");
+		printIntArrayUsingForLoop(a);
+		printStars("Print int Array Using while Loop");
+		printIntArrayUsingWhile(a);
+		printStars("Print int Array Using ForEach Loop");
+		printIntArrayUsingForEach(a);
+
+		printStars("print String Array");
+		String[] str = new String[2];
+		str[1] = "Sara";
+		
+		for(int i = 0; i < 2; i++) {
+			System.out.println(str[i]);
+		}
+		printStars("Print String Array Using For Loop");
+		printStringArrayUsingForLoop(str);
 	}
 }
 
