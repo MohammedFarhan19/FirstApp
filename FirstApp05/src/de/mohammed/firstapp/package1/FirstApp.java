@@ -294,6 +294,10 @@ public class FirstApp {
 		}
 		printStars("Print String Array Using For Loop");
 		printStringArrayUsingForLoop(str);
+		printStars("test Array");
+		int[] numbers = {13, 55, -99, 57, 0, 56};
+		System.out.println("Array length is: " + numbers.length);
+		System.out.println("Last Element is: " + numbers[numbers.length - 1]);
 	}
 }
 
