@@ -272,9 +272,25 @@ public class FirstApp {
 		}
 		return sum;
 	}
+	
+	public static int countRepeatedNumber(int[] numbers, int target) {
+		int count = 0;
+		for(int i = 0; i < numbers.length; i++) {
+			if(target == numbers[i]) {
+				count++;
+			}
+		}
+		return count;
+		
+	}
 
 	public static void main(String[] args) {
-		int numbers[] = { 1, 5, 2, 3, 4 };
-		System.out.println(sumNumbers(numbers));
+		int numbers[] = { 1, 1, 2, 3, 4 };
+		int countRepeatedTimes = countRepeatedNumber(numbers, 155);
+		if(countRepeatedTimes == 0) {
+			System.out.println("Number doesn't exist");
+		} else {
+			System.out.println("Number is " + countRepeatedTimes + " times in your Array.");
+		}
 	}
 }
