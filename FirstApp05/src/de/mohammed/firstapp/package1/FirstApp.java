@@ -5,13 +5,16 @@
  */
 package de.mohammed.firstapp.package1;
 
+import java.awt.geom.Area;
+
+import de.mohammed.firstapp.geometry.GeometryEngine;
+
 public class FirstApp {
 
 	public static void main(String[] args) {
-
-		ArrayEngine arrayEngine = new ArrayEngine();
-		int[] numbers = { 0, 2, 0, 3, 2, 0, 5 };
-		int[] result = arrayEngine.getDistinctValues(numbers);
-		arrayEngine.printIntArrayUsingForLoop(result);
+		
+		GeometryEngine geoEngine = new GeometryEngine();
+		float area = geoEngine.calculateRectangleArea(10, 52);
+		System.out.println("Area: " + area);
 	}
 }
