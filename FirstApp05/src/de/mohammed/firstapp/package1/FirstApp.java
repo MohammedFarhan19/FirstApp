@@ -283,14 +283,19 @@ public class FirstApp {
 		return count;
 		
 	}
+	
+	public static int getMaximumNumber(int[] numbers) {
+		int maxNumber = numbers[0];
+		for(int i = 0; i < numbers.length; i++) {
+			if(numbers[i] > maxNumber) {
+				maxNumber = numbers[i];
+			}
+		}
+		return maxNumber;
+	}
 
 	public static void main(String[] args) {
-		int numbers[] = { 1, 1, 2, 3, 4 };
-		int countRepeatedTimes = countRepeatedNumber(numbers, 155);
-		if(countRepeatedTimes == 0) {
-			System.out.println("Number doesn't exist");
-		} else {
-			System.out.println("Number is " + countRepeatedTimes + " times in your Array.");
-		}
+		int numbers[] = { 1, 1, 2, 3, 244 };
+		System.out.println(getMaximumNumber(numbers));
 	}
 }
