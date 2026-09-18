@@ -324,10 +324,36 @@ public class FirstApp {
 		return count;
 	}
 	
-
+	public static int[] reverseArray(int[] numbers) {
+		int[] reversed = new int[numbers.length];
+		for(int i = numbers.length - 1; i >= 0; i--) {
+			reversed[i] = numbers[numbers.length - i - 1];
+		}
+		return reversed;
+	}
+	
 	public static void main(String[] args) {
 		int numbers[] = { 1, 1, 2, 3, 244, 10, 33, 7, 9 };
-		System.out.printf("Number of Even Numbers is: %d\n",countEvenNumbers(numbers));
-		System.out.printf("Number of Odd Numbers is: %d\n",countOddNumbers(numbers));
+		printIntArrayUsingForEach(numbers);
+		printStars("reverse Array");
+		int[] reversedArray = reverseArray(numbers);
+		printIntArrayUsingForEach(reversedArray);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
