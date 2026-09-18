@@ -1,10 +1,8 @@
 package de.mohammed.firstapp.geometry;
 
-public class Circle {
+public class Circle extends Shape{
 
 	private float radius;
-	private float area;
-	private float perimeter;
 	private final float PI = 3.14f;
 	
 	public Circle(float radius) {

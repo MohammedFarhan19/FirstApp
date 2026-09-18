@@ -1,10 +1,8 @@
 package de.mohammed.firstapp.geometry;
 
-public class Square {
+public class Square  extends Shape{
 
 	private float side;
-	private float area;
-	private float perimeter;
 
 	public Square(float side) {
 		this.side = side;
@@ -18,6 +16,7 @@ public class Square {
 		this.side = side;
 	}
 	
+	@Override
 	public float calculateArea() {
 		this.area = this.side * this.side;
 		return this.area;

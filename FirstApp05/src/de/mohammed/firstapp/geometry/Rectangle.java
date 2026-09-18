@@ -1,11 +1,9 @@
 package de.mohammed.firstapp.geometry;
 
-public class Rectangle {
+public class Rectangle  extends Shape{
 
 	private float width;
 	private float height;
-	private float perimeter;
-	private float area;
 	
 	public Rectangle() {
 		this.width = 1;
