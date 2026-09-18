@@ -23,4 +23,14 @@ public class Rectangle {
 		return this.height;
 	}
 	
+	public float calculateArea() {
+		this.area = this.width * this.height;
+		return this.area;
+	}
+	
+	public float calculatePerimeter() {
+		this.perimeter = this.width * this.height;
+		return this.perimeter;
+	}
+	
 }
