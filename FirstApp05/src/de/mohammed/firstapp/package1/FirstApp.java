@@ -342,8 +342,13 @@ public class FirstApp {
 		return -1; // if target not found
 	}
 	
-	public static void isFound(int[] numbers, int target) {
-		throw new IllegalArgumentException();
+	public static boolean isFound(int[] numbers, int target) {
+		for(int i = 0; i < numbers.length; i++) {
+			if(target == numbers[i]) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public static void getDistinctValues(int[] numbers) {
@@ -352,18 +357,11 @@ public class FirstApp {
 	
 	public static void main(String[] args) {
 		int numbers[] = { 156, 20, 5, 21, 245, 2, 2, 15, 2, 32, 55};
-		printIntArrayUsingForEach(numbers);
-		printStars("reverse Array");
-		int[] reversedArray = reverseArray(numbers);
-		printIntArrayUsingForEach(reversedArray);
-		printStars("get Index");
-		System.out.println("Length of Array: "+ numbers.length);
-		 int result = getTargetIndex(numbers, 20);
-		 if(result == -1) {
-			 System.out.println("Not found");
-		 } else {
-			 System.out.println("The index: " + result);
-		 }
+		if(isFound(numbers, 50)) {
+			System.out.println("founded");
+		} else {
+				System.out.println("NOT founded");
+		}
 	}
 }
 
