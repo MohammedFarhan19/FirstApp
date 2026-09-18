@@ -186,7 +186,7 @@ public class FirstApp {
 		System.out.println("*********************** " + functionName+ " *************************");
 	}
 	
-	public static String getNumberInfo(int number) {
+	public static String[] getNumberInfo(int number) {
 		// INPUT
 //		int number = 12;
 		int digitsCount = 0;
@@ -229,9 +229,15 @@ public class FirstApp {
 //		System.out.println("New Number is: " + newNumber);
 //		System.out.println("***************** END *******************");
 		
-		String output = "Digits Count is\t" + digitsCount;
-		output += "\nDigits Sum is\t" + digitsSum;
-		output += "\nNew Number is\t" + newNumber;
+//		String output = "Digits Count is\t" + digitsCount;
+//		output += "\nDigits Sum is\t" + digitsSum;
+//		output += "\nNew Number is\t" + newNumber;
+		
+		// print message using Array
+		String[] output = new String[3];
+		output[0] = "Digits Count is\t" + digitsCount;
+		output[1] = "Digits Sum is\t" + digitsSum;
+		output[2] = "New Number is:\t" + newNumber;
 		return output;
 	}
 	
