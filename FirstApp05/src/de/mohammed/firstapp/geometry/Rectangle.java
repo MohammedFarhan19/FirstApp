@@ -29,7 +29,7 @@ public class Rectangle {
 	}
 	
 	public float calculatePerimeter() {
-		this.perimeter = this.width * this.height;
+		this.perimeter = 2 * (this.width + this.height);
 		return this.perimeter;
 	}
 	
