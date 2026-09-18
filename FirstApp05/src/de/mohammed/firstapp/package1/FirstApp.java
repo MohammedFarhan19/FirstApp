@@ -293,9 +293,20 @@ public class FirstApp {
 		}
 		return maxNumber;
 	}
+	
+	public static int getMinimumNumber(int[] numbers) {
+		int minNumber = numbers[0];
+		for(int i = 0; i < numbers.length; i++) {
+			if(numbers[i] < minNumber) {
+				minNumber = numbers[i];
+			}
+		}
+		return minNumber;
+	}
 
 	public static void main(String[] args) {
 		int numbers[] = { 1, 1, 2, 3, 244 };
-		System.out.println(getMaximumNumber(numbers));
+		System.out.println("Max Number: " + getMaximumNumber(numbers));
+		System.out.printf("Min Number: %d\n", getMinimumNumber(numbers));
 	}
 }
