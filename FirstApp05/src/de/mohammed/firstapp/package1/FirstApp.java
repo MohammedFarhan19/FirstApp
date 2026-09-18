@@ -351,17 +351,33 @@ public class FirstApp {
 		return false;
 	}
 	
-	public static void getDistinctValues(int[] numbers) {
-		throw new IllegalArgumentException();
+	public static int[] getDistinctValues(int[] numbers) {
+		int[] result = new int[numbers.length];
+		int resultIndex = 0;
+		for(int i = 0; i <numbers.length ; i++) {
+			int targetIndex = getTargetIndex(result, numbers[i]);
+			if(targetIndex == -1 || targetIndex == resultIndex) {  // >= resultIndex ====> not exist
+				result[resultIndex] = numbers[i];
+				resultIndex++;
+			}
+		}
+		int[] trimmedArray = sliceArray(numbers, resultIndex);
+		return trimmedArray;
+	}
+	
+	public static int[] sliceArray(int[] numbers, int newSize) {
+		int[] trimmedArray = new int[newSize];
+		for(int i = 0; i < trimmedArray.length; i++) {
+			trimmedArray[i] = numbers[i];
+		}
+		return trimmedArray;
 	}
 	
 	public static void main(String[] args) {
-		int numbers[] = { 156, 20, 5, 21, 245, 2, 2, 15, 2, 32, 55};
-		if(isFound(numbers, 50)) {
-			System.out.println("founded");
-		} else {
-				System.out.println("NOT founded");
-		}
+		int numbers[] = { 0, 2, 0, 3, 2, 0, 5};
+		int[] myDistinctArry = getDistinctValues(numbers);
+		printIntArrayUsingForLoop(myDistinctArry);
+		
 	}
 }
 
