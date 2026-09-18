@@ -6,39 +6,39 @@
 package de.mohammed.firstapp.package1;
 
 public class FirstApp {
-	
+
 	public static void test() {
 		// Param (requiered false)
 		// Body of the function
 		int firstNumber;
 		firstNumber = 20;
-		
+
 		int secondNumber = 15;
 		int sum;
 		sum = firstNumber + secondNumber;
-		
+
 		int diff;
 		diff = firstNumber - secondNumber;
-		
+
 		int multiplicationResult = firstNumber * secondNumber;
-		float divisionResult = (float)firstNumber / secondNumber;
-		
+		float divisionResult = (float) firstNumber / secondNumber;
+
 		System.out.println("Sum: " + sum);
 		System.out.println("Diff: " + diff);
 		System.out.println("Mul: " + multiplicationResult);
-		System.out.printf("Div: %.2f\n" , divisionResult);
+		System.out.printf("Div: %.2f\n", divisionResult);
 	}
-	
+
 	public static String calculateAngleBetweenClockArms(int h, int m) {
-		
+
 		///////////////////////////////////////////////////////////
-		//      Calculating Angle between Clock Arms | START     //
+		// Calculating Angle between Clock Arms | START //
 		//////////////////////////////////////////////////////////
 
 		// INPUT
 //		int h = 23;
 //		int m = 59;
-		//boolean error = false;
+		// boolean error = false;
 
 		// PROCESSING
 		float angle = 0;
@@ -47,7 +47,7 @@ public class FirstApp {
 		}
 
 		if ((h >= 0 && h <= 12) && (m >= 0 && m <= 59)) {
-			//error = true;
+			// error = true;
 			float minutesArm = m * 6;
 			float hoursArm = h * 30 + m * 0.5f;
 			angle = (hoursArm - minutesArm) % 360;
@@ -77,15 +77,15 @@ public class FirstApp {
 		return message;
 
 		///////////////////////////////////////////////////////////
-		//      Calculating Angle between Clock Arms | END      //
+		// Calculating Angle between Clock Arms | END //
 		//////////////////////////////////////////////////////////
 	}
 
 	public static int calculateBerma() {
 		///////////////////////////////////////////////////////////
-		//            Calculating Berma | START                  //
+		// Calculating Berma | START //
 		//////////////////////////////////////////////////////////
-		
+
 		for (int number = 60;; number += 60) {
 			if ((number + 1) % 7 == 0) {
 //				System.out.println(number + 1);
@@ -94,15 +94,15 @@ public class FirstApp {
 			}
 		}
 		///////////////////////////////////////////////////////////
-		//            Calculating Berma | END                   //
+		// Calculating Berma | END //
 		//////////////////////////////////////////////////////////
 	}
-	
+
 	public static int getMonthDaysCount(int month, int year) {
 		///////////////////////////////////////////////////////////
-		//            Calculating Days count using IF| START     //
+		// Calculating Days count using IF| START //
 		//////////////////////////////////////////////////////////
-		
+
 		// INPUT
 //		int month = 5;
 //		int year = 2045;
@@ -126,21 +126,19 @@ public class FirstApp {
 //		}
 //
 
-		
 		///////////////////////////////////////////////////////////
-		//            Calculating Days count | END              //
+		// Calculating Days count | END //
 		//////////////////////////////////////////////////////////
-		
+
 		///////////////////////////////////////////////////////////
-		//       Calculating Days count using SWITCH| START     //
+		// Calculating Days count using SWITCH| START //
 		//////////////////////////////////////////////////////////
-		
+
 		// INPUT
-		//int month = 122;
-		//int year = 2020;
-		//int daysCount;
-		
-		
+		// int month = 122;
+		// int year = 2020;
+		// int daysCount;
+
 		// PROCESSING
 		switch (month) {
 		case 1:
@@ -168,7 +166,7 @@ public class FirstApp {
 		default:
 			daysCount = 0;
 		}
-		
+
 		// OUTPUT
 //		String output = "";
 //		if (daysCount == 0) {
@@ -181,18 +179,18 @@ public class FirstApp {
 		return daysCount;
 
 	}
-	
+
 	public static void printStars(String functionName) {
-		System.out.println("*********************** " + functionName+ " *************************");
+		System.out.println("*********************** " + functionName + " *************************");
 	}
-	
+
 	public static int[] getNumberInfo(int number) {
 		// INPUT
 //		int number = 12;
 		int digitsCount = 0;
 		int digitsSum = 0;
 		int newNumber = 0;
-		
+
 		// PROCESSING
 //		if(number < 0) {
 //			number *= -1;
@@ -210,29 +208,29 @@ public class FirstApp {
 //		// OUTPUT
 //		System.out.println("Digits Count is: " + digitsCount);
 //		System.out.println("Digits Sum is: " + digitsSum);
-		
+
 		do {
 			int digit = number % 10;
 			System.out.println(digit);
 			digitsSum += digit;
 			int digitSquare = digit * digit;
 			newNumber = newNumber + digitSquare;
-			number/= 10;
+			number /= 10;
 			digitsCount++;
-			
+
 		} while (number != 0);
-		
+
 		// OUTPUT
 		// output is three messsages (return just one Info)
 //		System.out.println("Digits Count is: " + digitsCount);
 //		System.out.println("Digits Sum is: " + digitsSum);
 //		System.out.println("New Number is: " + newNumber);
 //		System.out.println("***************** END *******************");
-		
+
 //		String output = "Digits Count is\t" + digitsCount;
 //		output += "\nDigits Sum is\t" + digitsSum;
 //		output += "\nNew Number is\t" + newNumber;
-		
+
 		// print message using Array
 		int[] output = new int[3];
 		output[0] = digitsCount;
@@ -240,51 +238,43 @@ public class FirstApp {
 		output[2] = newNumber;
 		return output;
 	}
-	
+
 	public static void printIntArrayUsingForLoop(int[] myArray) {
-		for(int i = 0; i < myArray.length; i++) {
+		for (int i = 0; i < myArray.length; i++) {
 			System.out.println(myArray[i]);
 		}
 	}
-	
+
 	public static void printIntArrayUsingWhile(int[] arr) {
 		int i = 0;
-		while(i < arr.length) {
+		while (i < arr.length) {
 			System.out.println(arr[i]);
 			i++;
 		}
 	}
-	
+
 	private static void printIntArrayUsingForEach(int[] arr) {
-		for(Integer a : arr) {
+		for (Integer a : arr) {
 			System.out.println(a);
 		}
 	}
-	
+
 	public static void printStringArrayUsingForLoop(String[] arrString) {
-		for(int i = 0; i < arrString.length; i++) {
+		for (int i = 0; i < arrString.length; i++) {
 			System.out.println(arrString[i]);
 		}
 	}
+
+	public static int sumNumbers(int[] numbers) {
+		int sum = 0;
+		for (int i = 0; i < numbers.length; i++) {
+			sum += numbers[i];
+		}
+		return sum;
+	}
+
 	public static void main(String[] args) {
-		
-	System.out.println(getMonthDaysCount(12, 2020));
+		int numbers[] = { 1, 5, 2, 3, 4 };
+		System.out.println(sumNumbers(numbers));
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
