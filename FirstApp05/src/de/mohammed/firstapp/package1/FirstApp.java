@@ -325,19 +325,45 @@ public class FirstApp {
 	}
 	
 	public static int[] reverseArray(int[] numbers) {
-		int[] reversed = new int[numbers.length];
+		int[] reversedArray = new int[numbers.length];
 		for(int i = numbers.length - 1; i >= 0; i--) {
-			reversed[i] = numbers[numbers.length - i - 1];
+			reversedArray[i] = numbers[numbers.length - i - 1];
 		}
-		return reversed;
+		return reversedArray;
+	}
+	
+	public static int getTargetIndex(int[] numbers, int target) {
+//		int index = -1;
+		for(int i = 0; i < numbers.length; i++) {
+			if(target == numbers[i]) {
+				return i;
+			}
+		}
+		return -1; // if target not found
+	}
+	
+	public static void isFound(int[] numbers, int target) {
+		throw new IllegalArgumentException();
+	}
+	
+	public static void getDistinctValues(int[] numbers) {
+		throw new IllegalArgumentException();
 	}
 	
 	public static void main(String[] args) {
-		int numbers[] = { 1, 1, 2, 3, 244, 10, 33, 7, 9 };
+		int numbers[] = { 156, 20, 5, 21, 245, 2, 2, 15, 2, 32, 55};
 		printIntArrayUsingForEach(numbers);
 		printStars("reverse Array");
 		int[] reversedArray = reverseArray(numbers);
 		printIntArrayUsingForEach(reversedArray);
+		printStars("get Index");
+		System.out.println("Length of Array: "+ numbers.length);
+		 int result = getTargetIndex(numbers, 20);
+		 if(result == -1) {
+			 System.out.println("Not found");
+		 } else {
+			 System.out.println("The index: " + result);
+		 }
 	}
 }
 
