@@ -1,5 +1,8 @@
 package de.mohammed.firstapp.main;
 
+import java.nio.file.AccessDeniedException;
+import java.security.AccessControlException;
+
 public class QuizSolver {
 	
 	void test() {
@@ -179,9 +182,24 @@ public class QuizSolver {
 		System.out.println("*********************** " + functionName + " *************************");
 	}
 	
-	int getMonthDaysCountUsingExceptions(int month, int year) {
+	int getMonthDaysCountUsingExceptions(int month, int year) throws Exception{
 
 		// PROCESSING
+		if(year < 1950) {
+			throw new Exception("Jahr ist kleiner als 1950");  // AccessControlException is RuntimeException
+		}
+		
+		int[] test = new int[3];
+		test[23] = 53;
+		
+		/*
+		 * Exception of Type RuntimeException
+		 * called unchecked, you don't need to write it down in the head of the function
+		 */
+		int x = 34;
+		int y = 0;
+		int z = x / y;   // Exception division By Zero 
+		
 //		int daysCount = 0;
 		switch(month) {
 		case 1:
@@ -211,7 +229,13 @@ public class QuizSolver {
 			}
 		default:
 //			System.out.println("INVALID MONTH");
-			return 0;
+//			return 0;
+/*
+ * wir returnen hier kein 0, denn 0 gibt keine Erklärun, was eigentlich passiert ist, sondern machen ein Exception 
+ * deshalb werfen wir ein Object vom Typ Exception
+ * throe new Exception("Invalid Month"); 
+ */
+			throw new IndexOutOfBoundsException();   // imperative (do!) => // is RuntimeException
 		}
 		
 //		// OUTPUT
