@@ -1,6 +1,9 @@
 package de.mohammed.firstapp.test;
 
-public class FirstChild extends Parent{
+/*
+ * final class can't be extended
+ */
+public final class FirstChild extends Parent{
 
 	@Override
 	public void method() {
