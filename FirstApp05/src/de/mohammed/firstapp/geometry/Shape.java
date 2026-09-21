@@ -2,20 +2,16 @@ package de.mohammed.firstapp.geometry;
 
 /**
  * testing inheritence & override
+ * abstract class (not complete)
  */
-public class Shape {
+
+public abstract class Shape {
 	
 	protected float perimeter;
 	protected float area;
 	
-	public float calculateArea() {
-		this.area = -1;
-		return area;
-	}
+	public abstract float calculateArea();
 	
-	public float calculatePerimeter() {
-		this.perimeter = -1;
-		return perimeter;
-	}
+	public abstract float calculatePerimeter();
 
 }

@@ -18,5 +18,11 @@ public class Paralleogram extends Shape{
 		this.perimeter = 2 * (sideA + sideB);
 		return this.perimeter;
 	}
+
+	@Override
+	public float calculateArea() {
+		this.area = sideA * sideB;
+		return this.area;
+	}
 	
 }

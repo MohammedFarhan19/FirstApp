@@ -21,11 +21,13 @@ public class Circle extends Shape{
 		this.radius = radius;
 	}
 	
+	@Override
 	public float calculateArea() {
 		this.area = PI * this.radius * this.radius;
 		return this.area;
 	}
 	
+	@Override
 	public float calculatePerimeter() {
 		this.perimeter = 2 * PI * this.radius;
 		return this.perimeter;
