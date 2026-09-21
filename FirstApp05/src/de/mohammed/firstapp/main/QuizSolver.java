@@ -1,4 +1,4 @@
-package de.mohammed.firstapp.package1;
+package de.mohammed.firstapp.main;
 
 public class QuizSolver {
 	
@@ -177,6 +177,45 @@ public class QuizSolver {
 
 	void printStars(String functionName) {
 		System.out.println("*********************** " + functionName + " *************************");
+	}
+	
+	int getMonthDaysCountUsingExceptions(int month, int year) {
+
+		// PROCESSING
+//		int daysCount = 0;
+		switch(month) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			return 31;
+//			daysCount = 31;
+//			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			return 30;
+//			daysCount = 30;
+//			break;
+		case 2:
+			if(year % 4 == 0) {
+				return 29;
+//				daysCount= 29;
+			} else {
+				return 28;
+//				daysCount = 28;
+			}
+		default:
+//			System.out.println("INVALID MONTH");
+			return 0;
+		}
+		
+//		// OUTPUT
+//		return daysCount;
 	}
 
 }

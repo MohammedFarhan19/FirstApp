@@ -1,4 +1,4 @@
-package de.mohammed.firstapp.package1;
+package de.mohammed.firstapp.main;
 
 public class NumbersEngine {
 
