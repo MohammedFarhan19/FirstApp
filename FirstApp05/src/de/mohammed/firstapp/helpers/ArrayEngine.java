@@ -1,4 +1,4 @@
-package de.mohammed.firstapp.main;
+package de.mohammed.firstapp.helpers;
 /**
  * new Class
  */

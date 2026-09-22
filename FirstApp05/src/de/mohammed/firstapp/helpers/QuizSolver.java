@@ -1,11 +1,13 @@
-package de.mohammed.firstapp.main;
+package de.mohammed.firstapp.helpers;
 
 import java.nio.file.AccessDeniedException;
 import java.security.AccessControlException;
 
+import de.mohammed.firstapp.exception.MyException;
+
 public class QuizSolver {
 	
-	void test() {
+	public void test() {
 		// Param (requiered false)
 		// Body of the function
 		int firstNumber;
@@ -27,7 +29,7 @@ public class QuizSolver {
 		System.out.printf("Div: %.2f\n", divisionResult);
 	}
 
-	String calculateAngleBetweenClockArms(int h, int m) {
+	public String calculateAngleBetweenClockArms(int h, int m) {
 
 		///////////////////////////////////////////////////////////
 		// Calculating Angle between Clock Arms | START //
@@ -79,7 +81,7 @@ public class QuizSolver {
 		//////////////////////////////////////////////////////////
 	}
 	
-	int calculateBerma() {
+	public int calculateBerma() {
 		///////////////////////////////////////////////////////////
 		// Calculating Berma | START //
 		//////////////////////////////////////////////////////////
@@ -96,7 +98,7 @@ public class QuizSolver {
 		//////////////////////////////////////////////////////////
 	}
 
-	int getMonthDaysCount(int month, int year) {
+	public int getMonthDaysCount(int month, int year) {
 		///////////////////////////////////////////////////////////
 		// Calculating Days count using IF| START //
 		//////////////////////////////////////////////////////////
@@ -178,19 +180,23 @@ public class QuizSolver {
 
 	}
 
-	void printStars(String functionName) {
+	public void printStars(String functionName) {
 		System.out.println("*********************** " + functionName + " *************************");
 	}
 	
-	int getMonthDaysCountUsingExceptions(int month, int year) throws Exception{
+	public int getMonthDaysCountUsingExceptions(int month, int year) throws MyException{
 
 		// PROCESSING
 		if(year < 1950) {
-			throw new Exception("Jahr ist kleiner als 1950");  // AccessControlException is RuntimeException
+			throw new MyException("INVALID YEAR");  // AccessControlException is RuntimeException
 		}
 		
-		int[] test = new int[3];
-		test[23] = 53;
+//		int[] test = new int[7];
+//		test[6] = 53;
+		int[] test = new int[month];
+		if(test.length >= 7) {
+			test[6] = 23;
+		}
 		
 		/*
 		 * Exception of Type RuntimeException
@@ -198,7 +204,9 @@ public class QuizSolver {
 		 */
 		int x = 34;
 		int y = 0;
-		int z = x / y;   // Exception division By Zero 
+		if(y != 0) {
+			int z = x / y;   // RunimeException division By Zero 
+		}
 		
 //		int daysCount = 0;
 		switch(month) {
@@ -235,7 +243,7 @@ public class QuizSolver {
  * deshalb werfen wir ein Object vom Typ Exception
  * throe new Exception("Invalid Month"); 
  */
-			throw new IndexOutOfBoundsException();   // imperative (do!) => // is RuntimeException
+			throw new MyException("INVALID MONTH");  //IndexOutOfBoundsException();   // imperative (do!) => // is RuntimeException
 		}
 		
 //		// OUTPUT
