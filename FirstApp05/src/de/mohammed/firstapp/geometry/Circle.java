@@ -8,10 +8,7 @@ public class Circle extends Shape {
 	private final float PI = 3.14f;
 
 	public Circle(float radius) throws MyException {
-		if (radius <= 0) {
-			throw new MyException("Invalid Radius Value");
-		}
-		this.radius = radius;
+		this.setRadius(radius);
 	}
 
 	public float getPI() {
@@ -22,7 +19,10 @@ public class Circle extends Shape {
 		return radius;
 	}
 
-	public void setRadius(float radius) {
+	public void setRadius(float radius) throws MyException{
+		if(radius <= 0) {
+			throw new MyException("Invalid radius");
+		}
 		this.radius = radius;
 	}
 
