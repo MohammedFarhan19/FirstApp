@@ -32,6 +32,8 @@ public class FirstCollection {
 		meineAutos.add(new MeineAutos("BMW", 500.210, true));
 		meineAutos.add(new MeineAutos("Ferrari", 568945.15, false));
 		loopUsingForEach(meineAutos);
+		System.out.println("************* Reparatur Autos ***************");
+		printListUsingStream(meineAutos);
 		
 	}
 	
@@ -57,11 +59,32 @@ public class FirstCollection {
 		printList(billigeAutos);
 	}
 
+	/**
+	 * Method um List auszugeben. benutzen forEach
+	 * @param neueAutosList
+	 * @return void
+	 */
 	public static void printList(List<MeineAutos> neueAutosList) {
 		for(MeineAutos meineAutos : neueAutosList) {
 			System.out.print(meineAutos.getModelName() + " : " + meineAutos.getPrice() + "$\n");
 		}
 	}
+	
+	/**
+	 * Methode um List auszugeben, benutzen von stream
+	 * @param meinAutosList
+	 */
+	public static void printListUsingStream(List<MeineAutos> meinAutosList) {
+		// name der List dann .stream() dann methoden
+		// 1- filter station
+		meinAutosList.stream()
+					 .filter(teuere -> teuere.isReparaturbeduerftig() )
+					 .forEach(teuere -> System.out.println(teuere.getModelName()));		 
+	}
+	
+	
+	
+	
 	
 	
 }
