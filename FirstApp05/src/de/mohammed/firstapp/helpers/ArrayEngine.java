@@ -1,4 +1,7 @@
 package de.mohammed.firstapp.helpers;
+
+import java.util.List;
+
 /**
  * new Class
  */
@@ -148,6 +151,12 @@ public class ArrayEngine {
 			trimmedArray[i] = numbers[i];
 		}
 		return trimmedArray;
+	}
+	
+	public void printStringListUsingForEach(List<String> strList) {
+		for(String str : strList) {
+			System.out.println(str);
+		}
 	}
 
 }
