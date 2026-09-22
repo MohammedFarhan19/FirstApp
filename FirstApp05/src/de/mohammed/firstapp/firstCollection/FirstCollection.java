@@ -2,6 +2,7 @@ package de.mohammed.firstapp.firstCollection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.xml.stream.events.Namespace;
 
@@ -24,13 +25,43 @@ public class FirstCollection {
 		 * implements List List ist interface which extends Collection Iterable ist
 		 * interface
 		 */
-		ArrayEngine arrayEngine = new ArrayEngine();
-
-		ArrayList<String> names = new ArrayList<>();
-		names.add("Tim");
-		names.add("Sami");
-		names.add("Thomas");
 		
-		arrayEngine.printStringListUsingForEach(names);
+		List<MeineAutos> meineAutos = new ArrayList<>();
+		meineAutos.add(new MeineAutos("Mercedes", 1256.505, true));
+		meineAutos.add(new MeineAutos("Opel", 11.702, false));
+		meineAutos.add(new MeineAutos("BMW", 500.210, true));
+		meineAutos.add(new MeineAutos("Ferrari", 568945.15, false));
+		loopUsingForEach(meineAutos);
+		
 	}
+	
+	/*
+	 * BSP. Loop using ForEach just test
+	 * print Autos, deren price mehr als 100 ist  
+	 */
+	public static void loopUsingForEach(List<MeineAutos> meineAutosList) {
+		// zuerst erstellen eine List, um später Autos hinzuzufügen
+		List<MeineAutos> teureAutos = new ArrayList<>();
+		List<MeineAutos> billigeAutos = new ArrayList<>();
+				
+		for(MeineAutos mAutos : meineAutosList) {
+			if(mAutos.getPrice() > 100) {
+				teureAutos.add(mAutos);
+			} else {
+				billigeAutos.add(mAutos);
+			}
+		}
+		System.out.println("************* teuere Autos ***************");
+		printList(teureAutos);
+		System.out.println("************* billige Autos ***************");
+		printList(billigeAutos);
+	}
+
+	public static void printList(List<MeineAutos> neueAutosList) {
+		for(MeineAutos meineAutos : neueAutosList) {
+			System.out.print(meineAutos.getModelName() + " : " + meineAutos.getPrice() + "$\n");
+		}
+	}
+	
+	
 }
