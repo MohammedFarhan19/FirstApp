@@ -1,5 +1,7 @@
 package de.mohammed.firstapp.io;
 
+import java.util.Scanner;
+
 public class Engine {
 
 	public String oddOrEven(int number) {
@@ -9,6 +11,10 @@ public class Engine {
 		} else {
 			return "ODD";
 		}
+	}
+
+	public String welcome(String name) {
+		return "welcome " + name;
 	}
 	
 	

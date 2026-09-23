@@ -23,4 +23,17 @@ public class TestCases {
 		// [3] OUTPUT
 		System.out.println(message);
 	}
+	
+	public static void welcomeName() {
+		Scanner keyboardScanner = new Scanner(System.in);
+		System.out.print("Enter name: ");
+		String name = keyboardScanner.next();
+		
+		// [2] PROCESSING
+				Engine e = new Engine();
+				String message = e.welcome(name);
+				
+		// OUTPUT
+				System.out.println(message);
+	}
 }
