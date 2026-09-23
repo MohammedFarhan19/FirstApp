@@ -4,13 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TestCases {
 	
-	Logger logger = Logger.getLogger(TestCases.class.getName());
+	private final static Logger logger = Logger.getLogger(TestCases.class.getName());
 
 	public static void oddOrEven() {
 		
@@ -65,17 +66,24 @@ public class TestCases {
 	/**
 	 * Methode zum testen von BufferedReader
 	 */
-	public void testBufferedReader() {
+	public static void testBufferedReader() {
 		
 		try {
 			Reader reader = new InputStreamReader(System.in);
 			BufferedReader bfReader = new BufferedReader(reader);
-			System.out.print("Enter name:");
 			logger.log(Level.INFO, "read name");
+			System.out.print("Enter name:");
 			String name = bfReader.readLine();
+			
+			logger.log(Level.INFO, "calling Engine class => Method Welcome");
+			Engine engine = new Engine();
+			System.out.println(engine.welcome(name));
 		} catch (IOException e) {
 			logger.log(Level.INFO, e.getMessage());
 		}
 		
+	}
+	
+	public static void test() {
 	}
 }
