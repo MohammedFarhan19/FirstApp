@@ -1,34 +1,30 @@
-name: Integration mit CI
+name: Java CI mit Maven
+
+# 1. Hier wird festgelegt, wann die Pipeline startet
 on:
-    push:
-     branches: [main]
-    pull_request:
-     branches:[main]
+  push:
+    # GitHub startet jetzt, egal ob dein Branch 'main' oder 'master' heißt
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
 
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-		
-     steps:
-        - name: Respository auschecke
-          uses: actions/checkout@v7
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-        -name: Java(Temurin 17) einrichten und caching aktivieren
-        uses: actions/setup-java@v7
-          with:
-            distribution: 'temurin'
-            java-version: '17'
-            cache: 'maven'
-				
-         - name: Projekt mit Maven bauen und testen
-           run: mvn clean verify
+    steps:
+    - name: Repository auschecken
+      uses: actions/checkout@v4
 
-         - name: Build-Artefakt speichern
-           uses: actions/upload-artifact@v4
-           with:
-           name: java-jar-datei
-           path: target/*.jar	
-						
+    - name: Java (Temurin 17) einrichten
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        cache: 'maven'
+
+    - name: Projekt mit Maven bauen und testen
+      run: mvn clean verify
 
 
   
