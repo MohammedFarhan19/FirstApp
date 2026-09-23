@@ -1,0 +1,34 @@
+name: Integration mit CI
+on:
+    push:
+     branches: [main]
+    pull_request:
+     branches:[main]
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+		
+     steps:
+        - name: Respository auschecke
+          uses: actions/checkout@v7
+
+        -name: Java(Temurin 17) einrichten und caching aktivieren
+        uses: actions/setup-java@v7
+          with:
+            distribution: 'temurin'
+            java-version: '17'
+            cache: 'maven'
+				
+         - name: Projekt mit Maven bauen und testen
+           run: mvn clean verify
+
+         - name: Build-Artefakt speichern
+           uses: actions/upload-artifact@v4
+           with:
+           name: java-jar-datei
+           path: target/*.jar	
+						
+
+
+  

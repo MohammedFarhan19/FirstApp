@@ -1,0 +1,23 @@
+CI:
+	Continuous Integration => making sure the Code alwys builds and passes all tests
+	bevore any Devoploer make any deployment all tests will be made. The code is integrable (Fehlerfrei)
+
+CD:
+	Continuous Delivery   => making sure any code that is integrable is released
+	Continuous Deployment => making sure any code that is integrable is deployed to production. (code is avaliable)
+
+How are they applied?
+- with Git
+- trigger them to run on certain branches, tags, pull requests, or manually
+
+How to start?
+- GutHub workflows/Actions
+- Jenkins
+- Azure Piplines.
+- .......
+
+They all use YAML (yaml) formt
+Theay run on Virtual Machines, clone the repo and checkout the branch/tag
+then run a group of commands/script in certain order
+they have permissions, by default they might be able to write to your repo. (you can define these permissions ex. read only)
+	
