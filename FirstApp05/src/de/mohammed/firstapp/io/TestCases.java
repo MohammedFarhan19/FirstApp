@@ -1,11 +1,16 @@
 package de.mohammed.firstapp.io;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TestCases {
+	
+	Logger logger = Logger.getLogger(TestCases.class.getName());
 
 	public static void oddOrEven() {
 		
@@ -55,5 +60,22 @@ public class TestCases {
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
+	}
+	
+	/**
+	 * Methode zum testen von BufferedReader
+	 */
+	public void testBufferedReader() {
+		
+		try {
+			Reader reader = new InputStreamReader(System.in);
+			BufferedReader bfReader = new BufferedReader(reader);
+			System.out.print("Enter name:");
+			logger.log(Level.INFO, "read name");
+			String name = bfReader.readLine();
+		} catch (IOException e) {
+			logger.log(Level.INFO, e.getMessage());
+		}
+		
 	}
 }
