@@ -1,5 +1,7 @@
 package de.mohammed.firstapp.io;
 
+import java.util.Scanner;
+
 /**
  * @author moham
  * Class über Input Output Stream
@@ -13,7 +15,12 @@ public class FirstIO {
 	public static void main(String[] args) {
 		
 		//[1] INPUT
-		int number = 23;
+		// HW verlnagt Keyboard (default input)
+		// in diesem Fall ist der Scanner class der Ventil, der alles kontrolliert
+		Scanner keyboardScanner = new Scanner(System.in);
+		System.out.print("Enter number: ");
+		int number = keyboardScanner.nextInt();
+//		int number = 23;
 		
 		//[2] PROCESSING
 		String message = "";
