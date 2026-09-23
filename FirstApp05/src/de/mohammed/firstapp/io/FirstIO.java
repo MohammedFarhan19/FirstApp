@@ -14,23 +14,6 @@ public class FirstIO {
 
 	public static void main(String[] args) {
 		
-		//[1] INPUT
-		// HW verlnagt Keyboard (default input)
-		// in diesem Fall ist der Scanner class der Ventil, der alles kontrolliert
-		Scanner keyboardScanner = new Scanner(System.in);
-		System.out.print("Enter number: ");
-		int number = keyboardScanner.nextInt();
-//		int number = 23;
-		
-		//[2] PROCESSING
-		String message = "";
-		if(number % 2 == 0) {
-			message = "EVEN";
-		} else {
-			message = "ODD";
-		}
-		
-		//[3] OUTPUT
-		System.out.println(message);
+		TestCases.oddOrEven();
 	}
 }
