@@ -1,5 +1,8 @@
 package de.mohammed.firstapp.io;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Scanner;
 
 public class TestCases {
@@ -34,6 +37,23 @@ public class TestCases {
 				String message = e.welcome(name);
 				
 		// OUTPUT
-				System.out.println(message);
+		System.out.println(message);
+	}
+	
+	/**
+	 * Methode um Reader zu testen
+	 * @throws IOException 
+	 */
+	public static void testReader(){
+		
+		try {
+			// Reader ist abstract class kein Object möglich
+			Reader keyboardReader = new InputStreamReader(System.in);
+			System.out.print("Enter name: ");
+			int character = keyboardReader.read();
+			System.out.println(character);
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 }
