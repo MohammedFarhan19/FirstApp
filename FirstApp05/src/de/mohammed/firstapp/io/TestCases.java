@@ -11,6 +11,8 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.JFileChooser;
+
 public class TestCases {
 	
 	private final static Logger logger = Logger.getLogger(TestCases.class.getName());
@@ -121,4 +123,41 @@ public class TestCases {
 			logger.log(Level.SEVERE, "Fehler: " + TestCases.class.getSimpleName() + " : " + e.getMessage());
 		}
 	}
+	
+	public static void readFileUsingFileChooser() {
+		try {
+			JFileChooser fileChooser = new JFileChooser();
+			int response = fileChooser.showOpenDialog(null);
+			if (response == fileChooser.APPROVE_OPTION) {
+				String path = fileChooser.getSelectedFile().getAbsolutePath();
+
+				// now FileInputStream
+				FileInputStream fileInputStream = new FileInputStream(path);
+				Scanner inputScanner = new Scanner(fileInputStream);
+				String lineFromFile = inputScanner.nextLine();
+				logger.log(Level.INFO, "Now Read the Line");
+				System.out.println(lineFromFile);
+			}
+		} catch (FileNotFoundException e) {
+			logger.log(Level.SEVERE, "Fehler: " + TestCases.class.getSimpleName() + " : " + e.getMessage());
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
