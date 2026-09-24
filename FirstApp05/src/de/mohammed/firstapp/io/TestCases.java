@@ -168,4 +168,53 @@ public class TestCases {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	/**
+	 * Methode um eine Komplette File zu lesen
+	 * zweite zeile z.B.
+	 */
+	public static void readCompleteFile() {
+		try {
+			JFileChooser fileChooser = new JFileChooser();
+	        int response = fileChooser.showOpenDialog(null);
+	        if(response == fileChooser.APPROVE_OPTION) {
+	        	File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+	        	FileReader fileReader = new FileReader(file);
+	        	BufferedReader bfReader = new BufferedReader(fileReader);
+	        	String line = "";
+	        	while(true) {
+					line = bfReader.readLine();
+						if(line == null) {
+							break;
+						}
+						System.out.println(line);
+	        		}
+	        	bfReader.close();
+	        	fileReader.close();
+	        	}
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
