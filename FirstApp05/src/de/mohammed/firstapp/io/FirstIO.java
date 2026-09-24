@@ -14,6 +14,6 @@ public class FirstIO {
 
 	public static void main(String[] args) {
 		
-		TestCases.testBufferedReader();
+		TestCases.testFileInputStream();
 	}
 }

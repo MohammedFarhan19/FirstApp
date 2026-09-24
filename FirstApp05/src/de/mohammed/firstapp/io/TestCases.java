@@ -1,6 +1,8 @@
 package de.mohammed.firstapp.io;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -85,5 +87,38 @@ public class TestCases {
 	}
 	
 	public static void test() {
+	}
+	
+	/**
+	 * Methode zum testen von Reader(abstract class, und BufferedReader)
+	 * nutzung von Logger.Level
+	 */
+	public static void testReaderZwo() {
+		try {
+			Reader reader = new InputStreamReader(System.in);
+			BufferedReader bfReader = new BufferedReader(reader);
+			System.out.print("Enter Text: ");
+			String text = bfReader.readLine();
+			logger.log(Level.INFO, "your text\n");
+			System.out.println(text);
+		} catch (IOException e) {
+			logger.log(Level.SEVERE, "FEHLE IN DER KLASSE: " + TestCases.class.getSimpleName() + " : " + e.getMessage());;
+		}
+	}
+	
+	/**
+	 * Methode zum testen von FileInputStream mit Scanner
+	 */
+	public static void testFileInputStream() {
+		try {
+			// /FirstApp05/test.txt
+			FileInputStream inputFile = new FileInputStream("test.txt");
+			Scanner fileScanner = new Scanner(inputFile);
+			String line = fileScanner.nextLine();
+			System.out.println(line);
+			
+		} catch (FileNotFoundException e) {
+			logger.log(Level.SEVERE, "Fehler: " + TestCases.class.getSimpleName() + " : " + e.getMessage());
+		}
 	}
 }
