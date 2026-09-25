@@ -19,15 +19,12 @@ public class DBConnectionManager {
 	private final String PASSWORD = "";
 	
 	// 1- connect to Database (localhost, 3306, username, password, store_java)
-	public Connection connect() {
+	public Connection connect() throws SQLException {
 		/* Connection ist iterface extends Autoclosable => try with resource */
-		try {
-			Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			
+		Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 			return connection;
 
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}
 	}
 
 }

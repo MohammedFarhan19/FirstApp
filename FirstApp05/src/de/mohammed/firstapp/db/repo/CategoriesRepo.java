@@ -16,20 +16,19 @@ public class CategoriesRepo {
 	private final static Logger logger = Logger.getLogger(FirstDB.class.getSimpleName());
 	private DBConnectionManager connManager = new DBConnectionManager();
 	
-	public int insertCategory(Category category) {
+	public int insertCategory(Category category) throws SQLException {
 
-		Connection connection = connManager.connect();
-		try  (
+		try (Connection connection = connManager.connect();
 				// 2- prepare Query (Insert, update, delete, select)
-				Statement stmt = connection.createStatement();
-				){
-			
+				Statement stmt = connection.createStatement();) {
+
 			System.out.println("connected....");
 			logger.log(Level.INFO, "connected");
 
 			String sqlQuery = "INSERT INTO categories (name, description)" 
-							+ " VALUES ('" + category.getName() + "', '" + category.getDescription()+ "')";
-			
+							+ " VALUES ('" + category.getName() 
+							+ "', '" + category.getDescription() + "')";
+
 			logger.log(Level.INFO, "New category inserted");
 			// 3- execute Query
 			int noOfRowsAffected = stmt.executeUpdate(sqlQuery);
@@ -38,8 +37,6 @@ public class CategoriesRepo {
 			return noOfRowsAffected;
 			// 5- close connection
 			// Autoclose in the try with resource
-		} catch (SQLException e) {
-			logger.log(Level.SEVERE, "DB Exception: " + e.getMessage());
 		}
 	}
 	
