@@ -200,6 +200,36 @@ public class TestCases {
 				e.printStackTrace();
 			}
 	}
+	
+	/**
+	 * Methode um mehre zeile zu lesen
+	 * try with resources
+	 */
+	public static void readCompletFileZwo() {
+		JFileChooser fileChooser = new JFileChooser();
+		int response = fileChooser.showOpenDialog(null);
+		if(response == fileChooser.APPROVE_OPTION) {
+			File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+			try(
+					FileReader fReader = new FileReader(file);
+					BufferedReader bfReader = new BufferedReader(fReader);
+					){
+				String line = "";
+				while(true) {
+					line = bfReader.readLine();
+					if(line == null) {
+						break;
+					}
+					System.out.println(line);
+				}
+				
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
+	}
+	
 }
 
 
