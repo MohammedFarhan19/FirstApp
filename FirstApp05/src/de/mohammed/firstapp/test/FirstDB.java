@@ -15,20 +15,24 @@ import java.util.logging.Logger;
 5- close connection => besser try with resource try(hier){}
  */
 public class FirstDB {
+	
 	private final static Logger logger = Logger.getLogger(FirstDB.class.getSimpleName());
+	private final String URL = "jdbc:mysql://localhost:3306/store_java"; 
+	private final String USERNAME = "root"; 
+	private final String PASSWORD = ""; 
 
-	public static void main(String[] args) {
-		
-		String url = "jdbc:mysql://localhost:3306/store_java"; 
-		String username = "root"; 
-		String password = ""; 
+	/**
+	 * nur etsmal zum testen
+	 * Methode um ein Category zu inserten 
+	 */
+	public void insertCategory() {
 		
 		/**
 		 * Connection ist iterface extends Autoclosable => try with resource
 		 */
 		// 1- connect to Database (localhost, 3306, username, password, store_java)
 		try (
-				Connection connection = DriverManager.getConnection(url, username, password);
+				Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 		// 2- prepare Query (Insert, update, delete, select)
 				Statement stmt = connection.createStatement();
 				){
@@ -53,4 +57,10 @@ public class FirstDB {
 			logger.log(Level.SEVERE, "DB Exception: " + e.getMessage());
 		}
 	}
-}
+	
+	
+	public static void main(String[] args) {
+		
+	} // END main
+	
+}// END class
