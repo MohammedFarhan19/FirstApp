@@ -16,7 +16,7 @@ public class CategoriesRepo {
 	private final static Logger logger = Logger.getLogger(FirstDB.class.getSimpleName());
 	private DBConnectionManager connManager = new DBConnectionManager();
 	
-	public void insertCategory(Category category) {
+	public int insertCategory(Category category) {
 
 		Connection connection = connManager.connect();
 		try  (
@@ -34,12 +34,8 @@ public class CategoriesRepo {
 			// 3- execute Query
 			int noOfRowsAffected = stmt.executeUpdate(sqlQuery);
 			// 4- Fetch result (feedback, data)
-			if (noOfRowsAffected == 0) {
-				System.out.println("No rows affected.....");
-			} else {
-				System.out.println("No of Rows Affected: " + noOfRowsAffected);
-			}
 
+			return noOfRowsAffected;
 			// 5- close connection
 			// Autoclose in the try with resource
 		} catch (SQLException e) {
