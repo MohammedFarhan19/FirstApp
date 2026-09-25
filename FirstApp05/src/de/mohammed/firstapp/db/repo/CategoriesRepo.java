@@ -1,5 +1,8 @@
 package de.mohammed.firstapp.db.repo;
 
+/**
+ * Data Access Object (DAO)
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
