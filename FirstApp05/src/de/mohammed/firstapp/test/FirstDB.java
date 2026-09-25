@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import de.mohammed.firstapp.entity.Category;
+
 /*
 1- connect to Database (localhost, 3306, username, password, store_java)
 2- prepare Query (Insert, update, delete, select)
@@ -24,7 +26,7 @@ public class FirstDB {
 	/**
 	 * nur etsmal zum testen Methode um ein Category zu inserten
 	 */
-	public void insertCategory(String name, String description) {
+	public void insertCategory(Category category) {
 
 		/**
 		 * Connection ist iterface extends Autoclosable => try with resource
@@ -37,7 +39,7 @@ public class FirstDB {
 			logger.log(Level.INFO, "connected");
 
 			String sqlQuery = "INSERT INTO categories (name, description)" 
-							+ " VALUES ('" + name + "', '" + description+ "')";
+							+ " VALUES ('" + category.getName() + "', '" + category.getDescription()+ "')";
 			
 			logger.log(Level.INFO, "New category inserted");
 			// 3- execute Query
