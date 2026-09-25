@@ -1,4 +1,4 @@
-package de.mohammed.firstapp.entity;
+package de.mohammed.firstapp.db.entity;
 
 /**
  * Entity, POJO (class with getters and setters, constructor)
