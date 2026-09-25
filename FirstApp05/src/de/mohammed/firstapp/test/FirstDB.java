@@ -41,12 +41,14 @@ public class FirstDB {
 			// 3- execute Query
 			 int noOfRowsAffected = stmt.executeUpdate(sqlQuery);
 			 // 4- Fetch result (feedback, data)
-			 if(noOfRowsAffected > 0) {
-				 System.out.println("No of Rows Affected: " + noOfRowsAffected);
-			 } else {
+			 if(noOfRowsAffected == 0) {
 				 System.out.println("No rows affected.....");
+			 } else {
+				 System.out.println("No of Rows Affected: " + noOfRowsAffected);
 			 }
 		
+			 // 5- close connection
+			 // Autoclose in the try with resource
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "DB Exception: " + e.getMessage());
 		}
