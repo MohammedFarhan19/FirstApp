@@ -3,6 +3,7 @@ package de.mohammed.firstapp.test;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,10 +26,26 @@ public class FirstDB {
 		/**
 		 * Connection ist iterface extends Autoclosable => try with resource
 		 */
+		// 1- connect to Database (localhost, 3306, username, password, store_java)
 		try (
-				Connection connection = DriverManager.getConnection(url, username, password);){
-				System.out.println("connected....");
-		
+				Connection connection = DriverManager.getConnection(url, username, password);
+		// 2- prepare Query (Insert, update, delete, select)
+				Statement stmt = connection.createStatement();
+				){
+			System.out.println("connected....");
+			logger.log(Level.INFO, "connected");
+			
+			String sqlQuery = "INSERT INTO categories (name, description)"
+							+ " VALUES ('Category56', 'some category')";
+			logger.log(Level.INFO, "New category inserted");
+			// 3- execute Query
+			 int noOfRowsAffected = stmt.executeUpdate(sqlQuery);
+			 // 4- Fetch result (feedback, data)
+			 if(noOfRowsAffected > 0) {
+				 System.out.println("No of Rows Affected: " + noOfRowsAffected);
+			 } else {
+				 System.out.println("No rows affected.....");
+			 }
 		
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "DB Exception: " + e.getMessage());
