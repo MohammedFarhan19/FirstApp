@@ -15,52 +15,49 @@ import java.util.logging.Logger;
 5- close connection => besser try with resource try(hier){}
  */
 public class FirstDB {
-	
+
 	private final static Logger logger = Logger.getLogger(FirstDB.class.getSimpleName());
-	private final String URL = "jdbc:mysql://localhost:3306/store_java"; 
-	private final String USERNAME = "root"; 
-	private final String PASSWORD = ""; 
+	private final String URL = "jdbc:mysql://localhost:3306/store_java";
+	private final String USERNAME = "root";
+	private final String PASSWORD = "";
 
 	/**
-	 * nur etsmal zum testen
-	 * Methode um ein Category zu inserten 
+	 * nur etsmal zum testen Methode um ein Category zu inserten
 	 */
-	public void insertCategory() {
-		
+	public void insertCategory(String name, String description) {
+
 		/**
 		 * Connection ist iterface extends Autoclosable => try with resource
 		 */
 		// 1- connect to Database (localhost, 3306, username, password, store_java)
-		try (
-				Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-		// 2- prepare Query (Insert, update, delete, select)
-				Statement stmt = connection.createStatement();
-				){
+		try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				// 2- prepare Query (Insert, update, delete, select)
+				Statement stmt = connection.createStatement();) {
 			System.out.println("connected....");
 			logger.log(Level.INFO, "connected");
+
+			String sqlQuery = "INSERT INTO categories (name, description)" 
+							+ " VALUES ('" + name + "', '" + description+ "')";
 			
-			String sqlQuery = "INSERT INTO categories (name, description)"
-							+ " VALUES ('Category56', 'some category')";
 			logger.log(Level.INFO, "New category inserted");
 			// 3- execute Query
-			 int noOfRowsAffected = stmt.executeUpdate(sqlQuery);
-			 // 4- Fetch result (feedback, data)
-			 if(noOfRowsAffected == 0) {
-				 System.out.println("No rows affected.....");
-			 } else {
-				 System.out.println("No of Rows Affected: " + noOfRowsAffected);
-			 }
-		
-			 // 5- close connection
-			 // Autoclose in the try with resource
+			int noOfRowsAffected = stmt.executeUpdate(sqlQuery);
+			// 4- Fetch result (feedback, data)
+			if (noOfRowsAffected == 0) {
+				System.out.println("No rows affected.....");
+			} else {
+				System.out.println("No of Rows Affected: " + noOfRowsAffected);
+			}
+
+			// 5- close connection
+			// Autoclose in the try with resource
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "DB Exception: " + e.getMessage());
 		}
 	}
-	
-	
+
 	public static void main(String[] args) {
-		
+
 	} // END main
-	
+
 }// END class
