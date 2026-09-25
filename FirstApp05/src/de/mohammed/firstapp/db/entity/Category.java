@@ -2,6 +2,7 @@ package de.mohammed.firstapp.db.entity;
 
 /**
  * Entity, POJO (class with getters and setters, constructor)
+ * OR Bean (Data Transfer Object) => DTO
  * @author mohammed
  * History: 2026
  */
