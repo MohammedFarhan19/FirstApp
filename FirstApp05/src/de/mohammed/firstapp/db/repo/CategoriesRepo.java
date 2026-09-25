@@ -16,8 +16,7 @@ public class CategoriesRepo {
 	private final static Logger logger = Logger.getLogger(FirstDB.class.getSimpleName());
 	private DBConnectionManager connManager = new DBConnectionManager();
 	
-	public int insertCategory(Category category) throws SQLException {
-
+	public int insert(Category category) throws SQLException {
 		try (Connection connection = connManager.connect();
 				// 2- prepare Query (Insert, update, delete, select)
 				Statement stmt = connection.createStatement();) {
@@ -40,12 +39,34 @@ public class CategoriesRepo {
 		}
 	}
 	
-	public void updateCategory() {
-		
+	public int update(Category category) throws SQLException {
+		try(
+				Connection connection = connManager.connect();
+				Statement stmt = connection.createStatement();){
+			logger.log(Level.INFO, "Updated.....");
+			
+			String updateQuery = "UPDATE categories SET "
+					+ " name = '" + category.getName()+ "'"
+					+ " description = '" + category.getDescription() + "'"
+					+ " WHERE id = '" + category.getId()+ "'";
+			
+			int noOfRowsAffected = stmt.executeUpdate(updateQuery);
+			return noOfRowsAffected;
+		}
 	}
 	
-	public void deleteCategory(Integer id) {
-		
+	public int delete(Integer id) throws SQLException {
+		try(
+				Connection connection = connManager.connect();
+				Statement stmt = connection.createStatement();){
+			logger.log(Level.INFO, "Updated.....");
+			
+			String deleteQuery = "DELETE FROM categories "
+					+ " WHERE id = '" + id + "' ";
+			
+			int noOfRowsAffected = stmt.executeUpdate(deleteQuery);
+			return noOfRowsAffected;
+		}
 	}
 	
 	public Category selectCategory(Integer id) {
