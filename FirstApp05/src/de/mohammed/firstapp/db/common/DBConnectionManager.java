@@ -1,4 +1,4 @@
-package de.mohammed.firstapp.db.repo;
+package de.mohammed.firstapp.db.common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

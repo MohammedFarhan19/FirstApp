@@ -4,13 +4,15 @@ package de.mohammed.firstapp.db.repo;
  * Data Access Object (DAO)
  */
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import de.mohammed.firstapp.db.common.DBConnectionManager;
 import de.mohammed.firstapp.db.entity.Category;
 import de.mohammed.firstapp.test.FirstDB;
 
@@ -72,12 +74,47 @@ public class CategoriesRepo {
 		}
 	}
 	
-	public Category selectCategory(Integer id) {
-		throw new UnsupportedOperationException();
+	public Category selectCategory(Integer id) throws SQLException {
+		
+		try(
+				Connection connection = connManager.connect();
+				Statement stmt = connection.createStatement();
+				){
+			String query = "SELECT * FROM categories"
+					     + " WHERE id = " + id + ";";
+			
+			ResultSet result = stmt.executeQuery(query);
+			
+			if(result.next()) {
+				Category currentCategory = new Category();
+				currentCategory.setId(result.getInt("id"));
+				currentCategory.setName(result.getString("name"));
+				currentCategory.setDescription(result.getString("description"));
+				return currentCategory;
+			}
+			return null;
+		}
 	}
 	
-	public List<Category> selectAllCategories(){
-		throw new UnsupportedOperationException();
+	public List<Category> selectAllCategories() throws SQLException{
+		try(
+				Connection connection = connManager.connect();
+				Statement stmt = connection.createStatement();
+				){
+			String query = "SELECT * FROM categories;";
+			
+			ResultSet result = stmt.executeQuery(query);
+			
+			List<Category> allCategories = new ArrayList<>();
+			while(result.next()) {
+				Category currentCategory = new Category();
+				currentCategory.setId(result.getInt("id"));
+				currentCategory.setName(result.getString("name"));
+				currentCategory.setDescription(result.getString("description"));
+			}
+			
+			return allCategories;
+		}
 	}
 
 }
