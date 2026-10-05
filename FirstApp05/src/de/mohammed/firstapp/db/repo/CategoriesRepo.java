@@ -111,6 +111,7 @@ public class CategoriesRepo {
 				currentCategory.setId(result.getInt("id"));
 				currentCategory.setName(result.getString("name"));
 				currentCategory.setDescription(result.getString("description"));
+				allCategories.add(currentCategory);
 			}
 			
 			return allCategories;

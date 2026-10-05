@@ -1,6 +1,8 @@
 package de.mohammed.firstapp.test;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,23 +13,13 @@ public class FirstDB {
 
 	private final static Logger logger = Logger.getLogger(FirstDB.class.getSimpleName());
 	private static CategoriesRepo repo = new CategoriesRepo();
-	
-	
+
 	public static void main(String[] args) {
-//		insert();
-//		delete(1);
-		Category foundCategory = select(1);
-		if(foundCategory != null) {
-			System.out.printf("ID: %d\nNAME: %s\nDESCRIPTION: %s\n", foundCategory.getId()
-										    , foundCategory.getName()
-										    , foundCategory.getDescription());
-			
-		} else {
-			System.err.println("INVALID ID");
-		}
+
+		selectAllCategories();
 
 	} // END main
-	
+
 	static void insert() {
 		try {
 			Category newCategory = new Category();
@@ -37,9 +29,9 @@ public class FirstDB {
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "DB FEHLER....");
 		}
-		
+
 	}
-	
+
 	static void delete(Integer id) {
 		try {
 			repo.delete(id);
@@ -48,7 +40,6 @@ public class FirstDB {
 		}
 	}
 
-    
 	static Category select(Integer id) {
 		Category foundCategory = null;
 		try {
@@ -58,4 +49,23 @@ public class FirstDB {
 		}
 		return foundCategory;
 	}
+
+	static void selectAllCategories(){
+		try {
+			List<Category> foundedList = repo.selectAllCategories();
+			if(foundedList != null && !foundedList.isEmpty()) {
+				for(Category iCat : foundedList) {
+				System.out.print("ID: " + iCat.getId());
+				System.out.print(" | NAME: " + iCat.getName());
+				System.out.println(" | DESCRIPTION: " + iCat.getDescription());
+				}
+			} else {
+				System.out.println("No Catgories found...");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }// END class
