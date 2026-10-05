@@ -15,7 +15,16 @@ public class FirstDB {
 	
 	public static void main(String[] args) {
 //		insert();
-		delete(25);
+//		delete(1);
+		Category foundCategory = select(1);
+		if(foundCategory != null) {
+			System.out.printf("ID: %d\nNAME: %s\nDESCRIPTION: %s\n", foundCategory.getId()
+										    , foundCategory.getName()
+										    , foundCategory.getDescription());
+			
+		} else {
+			System.err.println("INVALID ID");
+		}
 
 	} // END main
 	
@@ -37,5 +46,16 @@ public class FirstDB {
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "FEHELR...");
 		}
+	}
+
+    
+	static Category select(Integer id) {
+		Category foundCategory = null;
+		try {
+			foundCategory = repo.selectCategory(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return foundCategory;
 	}
 }// END class
