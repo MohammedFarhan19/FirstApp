@@ -26,7 +26,7 @@ public class CategoriesRepo {
 				// 2- prepare Query (Insert, update, delete, select)
 				Statement stmt = connection.createStatement();) {
 
-			System.out.println("connected....");
+			System.out.println("connected ok....");
 			logger.log(Level.INFO, "connected");
 
 			String sqlQuery = "INSERT INTO categories (name, description)" 
