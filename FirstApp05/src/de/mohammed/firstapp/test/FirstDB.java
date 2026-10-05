@@ -16,7 +16,7 @@ public class FirstDB {
 		
 		try {
 			Category newCategory = new Category();
-			newCategory.setName("Test Category new");
+			newCategory.setName("Test2 Category new");
 			newCategory.setDescription("TEST....TEST");
 			repo.insert(newCategory);
 		} catch (SQLException e) {
