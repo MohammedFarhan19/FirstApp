@@ -10,19 +10,24 @@ import de.mohammed.firstapp.db.repo.CategoriesRepo;
 public class FirstDB {
 
 	private final static Logger logger = Logger.getLogger(FirstDB.class.getSimpleName());
+	private static CategoriesRepo repo = new CategoriesRepo();
+	
+	
 	public static void main(String[] args) {
-		
-		CategoriesRepo repo = new CategoriesRepo();
-		
-		try {
-			Category newCategory = new Category();
-			newCategory.setName("Test3 Category new");
-			newCategory.setDescription("TEST....TEST");
-			repo.insert(newCategory);
-		} catch (SQLException e) {
-			logger.log(Level.SEVERE, "DB FEHLER");
-		}
+		insert();
 
 	} // END main
+	
+	static void insert() {
+		try {
+			Category newCategory = new Category();
+			newCategory.setName("Test07 Category new");
+			newCategory.setDescription("TEST599....TEST");
+			repo.insert(newCategory);
+		} catch (SQLException e) {
+			logger.log(Level.SEVERE, "DB FEHLER....");
+		}
+		
+	}
 
 }// END class
