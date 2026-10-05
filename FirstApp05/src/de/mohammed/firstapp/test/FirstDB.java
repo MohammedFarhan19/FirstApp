@@ -14,7 +14,8 @@ public class FirstDB {
 	
 	
 	public static void main(String[] args) {
-		insert();
+//		insert();
+		delete(25);
 
 	} // END main
 	
@@ -30,5 +31,11 @@ public class FirstDB {
 		
 	}
 	
-
+	static void delete(Integer id) {
+		try {
+			repo.delete(id);
+		} catch (SQLException e) {
+			logger.log(Level.SEVERE, "FEHELR...");
+		}
+	}
 }// END class
