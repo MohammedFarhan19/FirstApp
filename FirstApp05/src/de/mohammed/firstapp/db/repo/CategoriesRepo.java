@@ -4,6 +4,7 @@ package de.mohammed.firstapp.db.repo;
  * Data Access Object (DAO)
  */
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -118,4 +119,49 @@ public class CategoriesRepo {
 		}
 	}
 
+
+	// PreparedStatment
+	public int insertUsingPreparedStatment(Category category) throws SQLException {
+		try(
+				Connection connection = connManager.connect();
+				){
+			
+			String insertQuery = "INSERT INTO categories (name, description)"
+					           + " VALUES (?, ?);";
+			PreparedStatement prStmt = connection.prepareStatement(insertQuery);
+			prStmt.setString(0, category.getName());
+			prStmt.setString(1, category.getDescription());
+			
+			// execute Query
+			int noOfAffectedRows = prStmt.executeUpdate();
+			return noOfAffectedRows;
+		}
+	}
+	
+	public int updateUsingPrepStmt(Category category , Integer id) throws SQLException {
+		try(
+				Connection connection =  connManager.connect();
+				){
+			String updateQuery = "UPDATE categories SET"
+								+ " name = ?, description = ?"
+								+ " WHERE id = ?;";
+			PreparedStatement prStmt = connection.prepareStatement(updateQuery);
+			prStmt.setString(0, category.getName());
+			prStmt.setString(1, category.getDescription());
+			prStmt.setInt(2, category.getId());
+			
+			int noOfAffectedRows = prStmt.executeUpdate();
+			return noOfAffectedRows;
+								
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
